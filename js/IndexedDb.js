@@ -23,33 +23,9 @@ conexion.onerror = (error) =>{
     console.log('Error', error)
 }
 
-const agregar = (info) =>{
-    const trasaccion = db.transaction(['Usuarios'],'readwrite')
-    const coleccionObjetos = trasaccion.objectStore('Usuarios')
-    const conexion = coleccionObjetos.add(data)
-    consultar()
-}
 
-const obtener = (id) =>{
-    const trasaccion = db.transaction(['Usuarios'],'readonly')
-    const coleccionObjetos = trasaccion.objectStore('Usuarios')
-    const conexion = coleccionObjetos.get(id)
 
-    conexion.onsuccess = (e)=>{
-        console.log(conexion.result)
-    }
-    
-}
 
-const actualizar = (data) =>{
-    const trasaccion = db.transaction(['Usuarios'],'readwrite')
-    const coleccionObjetos = trasaccion.objectStore('Usuarios')
-    const conexion = coleccionObjetos.put(data)
-    
-    conexion.onsuccess = ()=>{
-        consultar()
-    }
-}
 //db.transaction(['nombreTabla'],'readwrite')
 const eliminar = (id) =>{
     const trasaccion = db.transaction(['Usuarios'],'readwrite')
@@ -148,4 +124,60 @@ const traer = () =>{
         document.getElementById("mm").innerHTML=conexion.result.estudiosAdd;
         console.log(conexion.result.email)
     }
+}
+
+const insertar = () =>{
+    var vid = document.getElementById("prueba").value;
+
+    const trasaccion = db.transaction(['Usuarios'],'readonly')
+    const coleccionObjetos = trasaccion.objectStore('Usuarios')
+    const conexion = coleccionObjetos.get(vid)
+    
+    conexion.onsuccess = (e)=>{
+        document.getElementById("id").value=conexion.result.id;
+        document.getElementById("name").value=conexion.result.name;
+        document.getElementById("lname").value=conexion.result.lname;
+        document.getElementById("fNacimiento").value=conexion.result.fNacimiento;
+        document.getElementById("lugarNacimiento").value=conexion.result.lugarNacimiento;
+        document.getElementById("email").value=conexion.result.email;
+        document.getElementById("telefono").value=conexion.result.telefono;
+        document.getElementById("celular").value=conexion.result.celular;
+        document.getElementById("bachillerato").value=conexion.result.bachillerato;
+        document.getElementById("estudiosAdd").value=conexion.result.estudiosAdd;
+        console.log(conexion.result.email)
+    }
+}
+
+const editar = () =>{
+
+    var vid = document.getElementById("id").value;
+    var vname = document.getElementById("name").value;
+    var vlname = document.getElementById("lname").value;
+    var vfNaci = document.getElementById("fNacimiento").value;
+    var vlNaci = document.getElementById("lugarNacimiento").value;
+    var vemail = document.getElementById("email").value;
+    var vtelefono = document.getElementById("telefono").value;
+    var vcelular = document.getElementById("celular").value;
+    var vbachi = document.getElementById("bachillerato").value;
+    var vestudiosadd = document.getElementById("estudiosAdd").value;
+
+
+    const trasaccion = db.transaction(['Usuarios'],'readwrite')
+    const coleccionObjetos = trasaccion.objectStore('Usuarios')
+    const conexion = coleccionObjetos.put(
+        {
+            id: vid,
+            name: vname,
+            lname: vlname,
+            fNacimiento: vfNaci,
+            lugarNacimiento: vlNaci,
+            email: vemail,
+            telefono: vtelefono,
+            celular: vcelular,
+            bachillerato: vbachi,
+            estudiosAdd: vestudiosadd,
+ 
+        }
+    )
+    consultar()
 }
