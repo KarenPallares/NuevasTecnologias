@@ -441,8 +441,8 @@ input {
 }
 
 .card-1 .card-heading {
-  background: url("../images/bg-head-02.jpg") center center/cover no-repeat;
-  padding-top: 210px;
+  background: url("./img/fondo-header-01.jpg") center center/cover no-repeat;
+  padding-top: 150px;
 }
 
 .card-1 .card-body {
