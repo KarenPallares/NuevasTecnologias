@@ -181,3 +181,17 @@ const editar = () =>{
     )
     consultar()
 }
+
+const eliminardata = () =>{
+    var vid = document.getElementById("id").value;
+    console.log(vid)
+    const trasaccion = db.transaction(['Usuarios'],'readwrite')
+    const coleccionObjetos = trasaccion.objectStore('Usuarios')
+    const conexion = coleccionObjetos.delete(vid)
+
+    conexion.onsuccess = ()=>{
+        console.log(vid)
+        consultar()
+        
+    }
+}
