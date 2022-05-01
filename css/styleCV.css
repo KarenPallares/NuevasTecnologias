@@ -139,19 +139,30 @@ body
 .personalInfo
 {
     color: #fff;
+    font-weight: 100;   
+}
+.personalInfo h4
+{
+    color: #fff;
     font-weight: 300;   
 }
-.personalInfo .percent
+.language
+{
+    color: #fff;
+    font-weight: 300; 
+    margin-top: 5px;  
+}
+.language .percent
 {
     position: relative;
     width: 100px;
     height: 8px;
-    background: #f00;
+    background: #3a3939;
     display: block;
     margin-top: 5px;
 
 }
-.personalInfo .percent div
+.language .percent div
 {
     position: absolute;
     top: 0;
@@ -173,4 +184,79 @@ body
 .about:last-child
 {
     margin-bottom: 0;
+}
+.title2
+{
+    color: #003147;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+}
+p
+{
+    color: #333;
+}
+.about .box
+{
+    display: flex;
+    flex-direction: row;
+    margin: 20px 0;
+}
+.about .box .yearCompany
+{
+    min-width: 150px;
+}
+.about .box .yearCompany h5     
+{
+    text-transform: uppercase;
+    color: #848c90;
+    font-weight: 600;
+}
+.about .box .text h4
+{
+    text-transform: uppercase;
+    color: #2a7da2;
+    font-size: 16px;
+}
+.aboutSkills .box
+{
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    justify-content: center;
+    align-items: center;
+}
+.aboutSkills .box h4
+{
+    text-transform: uppercase;
+    color: #848c99;
+    font-weight: 500;
+}
+.aboutSkills .box .percent
+{
+    position: relative;
+    width: 100%;
+    height: 10px;
+    background: #f0f0f0; 
+}
+.aboutSkills .box .percent div
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    background: #03a9f4;
+}
+.aboutInterest
+{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.aboutInterest ul li
+{
+    list-style: none;
+    color: #333;
+    font-weight: 500;
+    margin: 10px 0;
 }
